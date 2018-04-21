@@ -25,10 +25,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    nnerve.cpp \
+    nannbp.cpp \
+    nlayer.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    nnerve.h \
+    activefunc.h \
+    nannbp.h \
+    nlayer.h
 
 FORMS += \
         mainwindow.ui
