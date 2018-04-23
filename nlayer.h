@@ -7,6 +7,7 @@ class NLayer
 {
 public:
     NLayer();
+    NLayer(int nCnt, int wtCnt);
     void RndInit(int nCnt,int wtCnt);
     vector<float> Run(vector<float> inputs);
     vector<float> LearnOutput(vector<float> inputs, vector<float> outputs);

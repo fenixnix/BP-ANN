@@ -9,7 +9,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    bp.Init(2,12,1);
+    vector<int> layerNums = {2,6,3,1};
+    bp.Init(layerNums);
 }
 
 MainWindow::~MainWindow()
