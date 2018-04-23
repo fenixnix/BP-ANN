@@ -19,7 +19,7 @@ float NNerve::Learn(vector<float> input, float error)
 {
   float O = Run(input);
   float E = O *(1.0f - O)*error;
-  for(int i = 0;i<weights.size();i++){
+  for(int i = 0;i<input.size();i++){
       weights[i] += lambda*E*input[i];
     }
   bias += lambda*E;
