@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    vector<int> layerNums = {2,6,3,1};
+    vector<int> layerNums = {2,21,21,1};
     bp.Init(layerNums);
 }
 
@@ -29,7 +29,6 @@ void Learn(float i1, float i2, float o){
 void Ask(float i1, float i2){
     vector<float> inputs = {i1,i2};
     auto res = bp.Run(inputs);
-
     cout<<"I:";
     foreach(auto r , inputs){
         cout<<r<<",";
