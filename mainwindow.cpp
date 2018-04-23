@@ -2,14 +2,14 @@
 #include "ui_mainwindow.h"
 #include "nannbp.h"
 
-NANNBP bp;
+NAnnBp bp;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    bp.Init(2,3,1);
+    bp.Init(2,12,1);
 }
 
 MainWindow::~MainWindow()
@@ -53,10 +53,33 @@ void MainWindow::on_btnTeachTest_clicked()
     int n = 1000;
     while(n>0){
         Learn(0,0,0);
-        Learn(0,1,1);
-        Learn(1,0,1);
-        Learn(1,1,0);
+        Learn(0,1,0);
+        Learn(1,0,0);
+        Learn(1,1,1);
         n--;
     }
     bp.Print();
+}
+
+void MainWindow::on_btnTeachSumIn10_clicked()
+{
+    int n = 1000;
+    while(n>0){
+        for(int i = 0;i<5;i++){
+            for(int j = 0;j<5;j++){
+                Learn(i*0.1,j*0.1,(i+j)*0.1);
+            }
+        }
+        n--;
+    }
+    bp.Print();
+}
+
+void MainWindow::on_btnAskSumIn10_clicked()
+{
+    for(int i = 0;i<5;i++){
+        for(int j = 0;j<5;j++){
+            Ask(i*0.1,j*0.1);
+        }
+    }
 }

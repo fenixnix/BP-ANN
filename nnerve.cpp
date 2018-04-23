@@ -46,8 +46,10 @@ void NNerve::RndInit(int cnt)
       float val = (float)(rand()%2000-1000)/1000.0f;
       //cout<<val<<endl;
       weights.push_back(val);
+      //weights.push_back(0.1f);
     }
-  bias = (float)(rand()%2000-1000)/1000.0f;
+  //bias = (float)(rand()%2000-1000)/1000.0f;
+    bias = 0;
 }
 
 void NNerve::Print()

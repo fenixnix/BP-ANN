@@ -21,6 +21,10 @@ private slots:
 
   void on_btnTeachTest_clicked();
 
+  void on_btnTeachSumIn10_clicked();
+
+  void on_btnAskSumIn10_clicked();
+
 private:
   Ui::MainWindow *ui;
 };

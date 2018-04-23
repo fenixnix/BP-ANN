@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>156</width>
-    <height>125</height>
+    <width>191</width>
+    <height>307</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,6 +29,20 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QPushButton" name="btnTeachSumIn10">
+      <property name="text">
+       <string>Teach sum in 10</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnAskSumIn10">
+      <property name="text">
+       <string>Ask sum in 10</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -36,8 +50,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>156</width>
-     <height>22</height>
+     <width>191</width>
+     <height>25</height>
     </rect>
    </property>
   </widget>
