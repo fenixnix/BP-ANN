@@ -12,7 +12,7 @@ public:
     vector<float> Run(vector<float> inputs);
     vector<float> LearnOutput(vector<float> inputs, vector<float> outputs);
     vector<float> Learn(vector<float> inputs, vector<float> errors);
-    void Print();
+    string Print();
 
     vector<float> GetBPErrs(vector<float> errs);
 

@@ -65,11 +65,12 @@ vector<float> NLayer::Learn(vector<float> inputs, vector<float> errors)
   return GetBPErrs(errs);
 }
 
-void NLayer::Print()
+string NLayer::Print()
 {
-  auto nerveCnt = nnerves.size();
-  for(int i = 0;i<nerveCnt;i++){
-      nnerves[i].Print();
-    }
-  cout<<endl;
+  ostringstream os;
+  os<<"L Wt_Ct:"<<wtCnt<<" N_Ct:"<<nnerves.size()<<endl;
+  for(int i = 0;i<nnerves.size();i++){
+    os<<nnerves[i].Print();
+  }
+  return os.str();
 }

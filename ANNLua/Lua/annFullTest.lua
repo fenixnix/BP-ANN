@@ -2,8 +2,6 @@ _G['os'] = nil
 _G['io'] = nil
 json = require 'json'
 
-require 'toolmodule'
-
 gUser = nil 
 
 function init()

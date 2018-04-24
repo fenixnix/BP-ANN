@@ -43,6 +43,13 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -51,7 +58,7 @@
      <x>0</x>
      <y>0</y>
      <width>191</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

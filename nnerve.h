@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 #include <assert.h>
+#include <sstream>
 #include "activefunc.h"
 
 using namespace std;
@@ -18,7 +19,7 @@ public:
   void Init(float defVal, int cnt);
   void RndInit(int wtCnt);
 
-  void Print();
+  string Print();
 
   vector<float> weights;
   float bias = 0;

@@ -52,11 +52,12 @@ void NNerve::RndInit(int cnt)
     bias = 0;
 }
 
-void NNerve::Print()
+string NNerve::Print()
 {
-  cout<<"N:";
+  ostringstream os;
+  os<<"\tN Ct:"<<weights.size()<<" Bias:"<<bias<<endl;
   for(int i = 0;i<weights.size();i++){
-    cout<<weights[i]<<"|";
+    os<<"\t\t#"<<i<<":"<<weights[i]<<"|"<<endl;
   }
-  cout<<"b:"<<bias<<"-";
+  return os.str();
 }

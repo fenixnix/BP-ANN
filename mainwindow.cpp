@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    vector<int> layerNums = {2,21,21,1};
+    vector<int> layerNums = {2,5,3,1};
     bp.Init(layerNums);
 }
 
@@ -58,7 +58,7 @@ void MainWindow::on_btnTeachTest_clicked()
         Learn(1,1,1);
         n--;
     }
-    bp.Print();
+    ui->label->setText(QString::fromStdString(bp.Print()));
 }
 
 void MainWindow::on_btnTeachSumIn10_clicked()
@@ -72,7 +72,7 @@ void MainWindow::on_btnTeachSumIn10_clicked()
         }
         n--;
     }
-    bp.Print();
+    qDebug()<<QString::fromStdString(bp.Print());
 }
 
 void MainWindow::on_btnAskSumIn10_clicked()

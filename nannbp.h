@@ -12,7 +12,7 @@ public:
     vector<vector<float> > RunGetAllLayerOutput(vector<float> inputs);
     void Learn(vector<float> input, vector<float> output);
 
-    void Print();
+    string Print();
 
 private:
     vector<NLayer> layers;
