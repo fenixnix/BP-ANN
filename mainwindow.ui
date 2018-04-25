@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>191</width>
-    <height>307</height>
+    <width>391</width>
+    <height>409</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,6 +15,36 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLineEdit" name="bpAnnParam"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="iniBtn">
+      <property name="text">
+       <string>Init BP ANN</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTextEdit" name="trainEdit"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="trainBtn">
+      <property name="text">
+       <string>Trainning</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="askEdit"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="askBtn">
+      <property name="text">
+       <string>Ask</string>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="QPushButton" name="btnTeachTest">
       <property name="text">
@@ -30,25 +60,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="btnTeachSumIn10">
-      <property name="text">
-       <string>Teach sum in 10</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btnAskSumIn10">
-      <property name="text">
-       <string>Ask sum in 10</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
+     <widget class="QTextEdit" name="resultEdit"/>
     </item>
    </layout>
   </widget>
@@ -57,7 +69,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>191</width>
+     <width>391</width>
      <height>22</height>
     </rect>
    </property>

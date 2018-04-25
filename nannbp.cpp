@@ -7,6 +7,7 @@ NAnnBp::NAnnBp()
 
 void NAnnBp::Init(vector<int> layerNums)
 {
+  layers.clear();
   assert(layerNums.size()>2);
   for(int i = 0;i<layerNums.size()-1;i++){
       NLayer layer(layerNums[i+1],layerNums[i]);

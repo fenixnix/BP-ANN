@@ -5,81 +5,120 @@
 NAnnBp bp;
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+  QMainWindow(parent),
+  ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
-    vector<int> layerNums = {2,5,3,1};
-    bp.Init(layerNums);
+  ui->setupUi(this);
+  vector<int> layerNums = {2,5,1};
+  bp.Init(layerNums);
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+  delete ui;
 }
 
-void Learn(float i1, float i2, float o){
+void MainWindow::Ask(QString json)
+{
+  QJsonDocument j = QJsonDocument::fromJson(json.toLatin1());
+  vector<float> iArray;
+  auto ijArray = j["I"].toArray();
 
-    vector<float> inputs = {i1,i2};
-    vector<float> outputs = {o};
-
-    bp.Learn(inputs,outputs);
+  for(int i = 0;i<ijArray.size();i++){
+      iArray.push_back(ijArray[i].toDouble());
+    }
+  auto result = bp.Run(iArray);
+  QString r = json + " result:";
+  for(int i = 0;i<result.size();i++){
+      r += QString::number(result[i]) + ",";
+    }
+  ui->resultEdit->append(r);
 }
 
-void Ask(float i1, float i2){
-    vector<float> inputs = {i1,i2};
-    auto res = bp.Run(inputs);
-    cout<<"I:";
-    foreach(auto r , inputs){
-        cout<<r<<",";
+void Learn(QString json){
+  //qDebug()<<json;
+  QJsonDocument j = QJsonDocument::fromJson(json.toLatin1());
+  vector<float> iArray,oArray;
+  auto ijArray = j["I"].toArray();
+  auto ojArray = j["O"].toArray();
+
+  for(int i = 0;i<ijArray.size();i++){
+      iArray.push_back(ijArray[i].toDouble());
     }
-    cout<<"\tO:";
-    foreach(auto r , res){
-        cout<<r<<",";
+
+  for(int i = 0;i<ojArray.size();i++){
+      oArray.push_back(ojArray[i].toDouble());
     }
-    cout<<endl;
+  bp.Learn(iArray,oArray);
 }
 
 void MainWindow::on_btnGetAskTest_clicked()
 {
-    Ask(0,0);
-    Ask(1,0);
-    Ask(0,1);
-    Ask(1,1);
+  Ask("{\"I\":[0,0]}");
+  Ask("{\"I\":[0,1]}");
+  Ask("{\"I\":[1,0]}");
+  Ask("{\"I\":[1,1]}");
 }
 
 void MainWindow::on_btnTeachTest_clicked()
 {
-    int n = 1000;
-    while(n>0){
-        Learn(0,0,0);
-        Learn(0,1,0);
-        Learn(1,0,0);
-        Learn(1,1,1);
-        n--;
+  for(int i = 0;i<1000;i++){
+      Learn("{\"I\":[0,0],\"O\":[0]}");
+      Learn("{\"I\":[0,1],\"O\":[0]}");
+      Learn("{\"I\":[1,0],\"O\":[0]}");
+      Learn("{\"I\":[1,1],\"O\":[1]}");
     }
-    ui->label->setText(QString::fromStdString(bp.Print()));
 }
 
 void MainWindow::on_btnTeachSumIn10_clicked()
 {
-    int n = 1000;
-    while(n>0){
-        for(int i = 0;i<5;i++){
-            for(int j = 0;j<5;j++){
-                Learn(i*0.1,j*0.1,(i+j)*0.1);
-            }
-        }
-        n--;
-    }
-    qDebug()<<QString::fromStdString(bp.Print());
+//  int n = 1000;
+//  while(n>0){
+//      for(int i = 0;i<5;i++){
+//          for(int j = 0;j<5;j++){
+//              Learn(i*0.1,j*0.1,(i+j)*0.1);
+//            }
+//        }
+//      n--;
+//    }
+//  qDebug()<<QString::fromStdString(bp.Print());
 }
 
 void MainWindow::on_btnAskSumIn10_clicked()
 {
-    for(int i = 0;i<5;i++){
-        for(int j = 0;j<5;j++){
-            Ask(i*0.1,j*0.1);
-        }
+//  for(int i = 0;i<5;i++){
+//      for(int j = 0;j<5;j++){
+//          Ask(i*0.1,j*0.1);
+//        }
+//    }
+}
+
+void MainWindow::on_iniBtn_clicked()
+{
+  auto p = ui->bpAnnParam->text().split(",");
+  vector<int> params;
+  foreach(QString t, p){
+      params.push_back(t.toInt());
     }
+  bp.Init(params);
+  ui->resultEdit->append(QString::fromStdString(bp.Print()));
+}
+
+void MainWindow::on_trainBtn_clicked()
+{
+  auto jList = ui->trainEdit->toPlainText().split("\n");
+  foreach(auto js, jList){
+      Learn(js);
+    }
+}
+/*
+{"I":[0,0],"O":[0]}
+{"I":[0,1],"O":[0]}
+{"I":[1,0],"O":[0]}
+{"I":[1,1],"O":[1]}
+*/
+
+void MainWindow::on_askBtn_clicked()
+{
+  Ask(ui->askEdit->text());
 }
