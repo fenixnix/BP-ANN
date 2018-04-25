@@ -49,8 +49,8 @@ end
 ann = {}
 lambda = 0.05
 
-function _Sigmoid(inputSignal)
-    result = 1.0/(1.0+ math.exp(-1*inputSignal))
+function _Sigmoid(signal)
+    result = 1.0/(1.0+ math.exp(-1*signal))
     return result
 end
 
@@ -231,3 +231,43 @@ end
 --[[
 SelfTest Code
 --]]
+
+function testTeach(times)
+    print('Teach And')
+    for i = times , 1, -1 
+    do  
+        _Teach({0,0},{0})
+        _Teach({0,1},{1})
+        _Teach({1,0},{1})
+        _Teach({1,1},{0})
+    end
+end
+
+function testAsk()
+    print('Results:')
+    result = _Ask({0,0})
+    print(result[1])
+    result = _Ask({0,1})
+    print(result[1])
+    result = _Ask({1,0})
+    print(result[1])
+    result = _Ask({1,1})
+    print(result[1])
+end
+
+function test()
+    init()
+
+    testAsk()
+
+    testTeach(5000)
+    testAsk()
+    
+    testTeach(5000)
+    testAsk()
+    
+    testTeach(5000)
+    testAsk()
+end
+
+test()
