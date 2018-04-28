@@ -39,3 +39,6 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui
+
+include("../CA/CA.pri")
+include("D:/opencv3/opencv3.pri")

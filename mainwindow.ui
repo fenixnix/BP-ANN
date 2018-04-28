@@ -6,61 +6,65 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>391</width>
-    <height>409</height>
+    <width>300</width>
+    <height>445</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QLineEdit" name="bpAnnParam"/>
-    </item>
-    <item>
-     <widget class="QPushButton" name="iniBtn">
-      <property name="text">
-       <string>Init BP ANN</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QTextEdit" name="trainEdit"/>
-    </item>
-    <item>
-     <widget class="QPushButton" name="trainBtn">
-      <property name="text">
-       <string>Trainning</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="askEdit"/>
-    </item>
-    <item>
-     <widget class="QPushButton" name="askBtn">
-      <property name="text">
-       <string>Ask</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btnTeachTest">
-      <property name="text">
-       <string>Test Teach</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="btnGetAskTest">
-      <property name="text">
-       <string>Test Ask</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QTextEdit" name="resultEdit"/>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLineEdit" name="bpAnnParam"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="iniBtn">
+        <property name="text">
+         <string>Init BP ANN</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTextEdit" name="trainEdit"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="trainBtn">
+        <property name="text">
+         <string>Trainning</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="askEdit"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="askBtn">
+        <property name="text">
+         <string>Ask</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnTeachTest">
+        <property name="text">
+         <string>Test Teach</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnGetAskTest">
+        <property name="text">
+         <string>Test Ask</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTextEdit" name="resultEdit"/>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
@@ -69,10 +73,24 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>391</width>
+     <width>300</width>
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuCelluar">
+    <property name="title">
+     <string>CellularAutomation</string>
+    </property>
+    <addaction name="actionLearn_Conway_LifeGame"/>
+    <addaction name="actionTest_2D"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuCelluar"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -83,6 +101,16 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionTest_2D">
+   <property name="text">
+    <string>Test 2D</string>
+   </property>
+  </action>
+  <action name="actionLearn_Conway_LifeGame">
+   <property name="text">
+    <string>Learn Conway LifeGame</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
